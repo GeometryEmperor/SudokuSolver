@@ -9,8 +9,6 @@ import com.georgekyvelidis.sudokusolver.R
 /**
  * Centralized access to the app's color palette defined in res/values/colors.xml.
  *
- * Usage inside a @Composable:
- *     AppColors.backgroundBlue
  */
 object AppColors {
     val backgroundBlue: Color
