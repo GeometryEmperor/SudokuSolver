@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- App background -->
+    <color name="background_blue">#6498FF</color>
+
+    <!-- Sudoku grid -->
+    <color name="cell_white">#FFFFFF</color>
+    <color name="cell_border">#3A5FCC</color>
+    <color name="grid_frame">#1E3A8A</color>
+
+    <!-- Numbers -->
+    <color name="number_user">#1565C0</color>
+    <color name="number_solver">#424242</color>
+
+    <!-- Text on blue background -->
+    <color name="text_on_blue">#FFFFFF</color>
+    <color name="text_error_on_blue">#FFCDD2</color>
+
+    <!-- Buttons -->
+    <color name="button_clear_container">#FFFFFF</color>
+    <color name="button_clear_content">#1565C0</color>
+    <color name="button_solve_container">#1E3A8A</color>
+    <color name="button_solve_content">#FFFFFF</color>
+    <color name="button_puzzle_container">#3A5FCC</color>
+    <color name="button_puzzle_content">#FFFFFF</color>
+</resources>

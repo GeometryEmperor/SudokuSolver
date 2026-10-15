@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sudoku Solver</string>
+    <string name="title">Sudoku Solver</string>
+
+    <string name="button_clear">Clear</string>
+    <string name="button_solve">Solve</string>
+
+    <string name="status_solved">✓ Solved!</string>
+    <string name="error_invalid_puzzle">Invalid Sudoku puzzle!</string>
+    <string name="error_no_solution">No solution exists!</string>
+
+    <string name="dialog_title_select">Select number</string>
+    <string name="dialog_title_change">Change number</string>
+    <string name="dialog_button_clear">Clear cell</string>
+    <string name="dialog_button_cancel">Cancel</string>
+</resources>
