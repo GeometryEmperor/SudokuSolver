@@ -383,7 +383,6 @@ fun NumberPickerDialog(
     )
 }
 
-// Helper function
 fun emptyBoard(): List<MutableList<Int>> {
     return List(9) { MutableList(9) { 0 } }
 }
