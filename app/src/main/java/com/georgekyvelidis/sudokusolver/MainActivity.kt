@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -350,28 +351,24 @@ fun NumberPickerDialog(
             )
         },
         text = {
-            Column {
-                for (i in 1..9) {
-                    TextButton(
-                        onClick = { onNumberSelected(i) },
-                        modifier = Modifier.fillMaxWidth()
+            Column(
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                for (row in 0 until 3) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        Text(
-                            text = i.toString(),
-                            fontSize = 20.sp,
-                            fontWeight = if (i == currentValue) FontWeight.Bold else FontWeight.Normal,
-                            color = if (i == currentValue) MaterialTheme.colorScheme.primary else Color.Unspecified
-                        )
+                        for (col in 0 until 3) {
+                            val number = row * 3 + col + 1
+                            NumberButton(
+                                number = number,
+                                isCurrent = number == currentValue,
+                                onClick = { onNumberSelected(number) },
+                                modifier = Modifier.weight(1f)
+                            )
+                        }
                     }
-                }
-                TextButton(
-                    onClick = { onNumberSelected(0) },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(
-                        text = stringResource(R.string.dialog_button_clear),
-                        color = Color.Red
-                    )
                 }
             }
         },
@@ -379,10 +376,52 @@ fun NumberPickerDialog(
             TextButton(onClick = onDismiss) {
                 Text(stringResource(R.string.dialog_button_cancel))
             }
+        },
+        dismissButton = {
+            TextButton(onClick = { onNumberSelected(0) }) {
+                Text(
+                    text = stringResource(R.string.dialog_button_clear),
+                    color = MaterialTheme.colorScheme.error
+                )
+            }
         }
     )
 }
 
+@Composable
+private fun NumberButton(
+    number: Int,
+    isCurrent: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val scheme = MaterialTheme.colorScheme
+    Button(
+        onClick = onClick,
+        modifier = modifier.height(44.dp),
+        shape = RoundedCornerShape(10.dp),
+        colors = if (isCurrent) {
+            ButtonDefaults.buttonColors(
+                containerColor = scheme.primary,
+                contentColor = scheme.onPrimary
+            )
+        } else {
+            ButtonDefaults.buttonColors(
+                containerColor = scheme.surfaceVariant,
+                contentColor = scheme.onSurfaceVariant
+            )
+        },
+        contentPadding = PaddingValues(0.dp)
+    ) {
+        Text(
+            text = number.toString(),
+            fontSize = 18.sp,
+            fontWeight = FontWeight.SemiBold
+        )
+    }
+}
+
+// Helper function
 fun emptyBoard(): List<MutableList<Int>> {
     return List(9) { MutableList(9) { 0 } }
 }
